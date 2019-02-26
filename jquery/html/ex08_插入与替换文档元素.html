@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>如何插入与替换文档元素</title>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+	<p id="text">这是一个文本</p>
+	
+	
+<script>
+	$(document).ready(function(){
+		$("#text").bind("click",function(){
+			$(this).append("---->往后追加一个文本");
+			$(this).after("---->往后追加一个文本(标签外)");
+			
+			$(this).prepend("往前追加一个文本---->");
+			$(this).before("---->往前追加一个文本(标签外)");
+			
+			//repalceWith()替换
+			$(this).replaceWith('<h1>' + $(this).text() + '</h1>');
+		});
+	});
+	
+</script>
+</body>
+</html>

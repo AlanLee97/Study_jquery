@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, init-scale=1.0">
+<title>$(this)用法:根据上下文,获取当前jQuery对象</title>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<style>
+	img{
+		width: 20%;
+		
+	}	
+</style>
+</head>
+
+<body>
+<img alt="bg1" src="../source/imgs/bg1.jpg" />
+<img alt="bg2" src="../source/imgs/bg2.jpg" />
+<img alt="bg3" src="../source/imgs/bg3.jpg" />
+	
+<script>
+	$(document).ready(function(){
+		$("img").click(function(){
+			alert($(this).attr("alt"));
+		});
+	});
+	
+</script>
+</body>
+</html>

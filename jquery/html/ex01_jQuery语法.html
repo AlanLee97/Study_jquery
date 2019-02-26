@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery语法</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script >
+	
+	$(document).ready(
+		function(){
+			$("#empty").click(
+				function(){
+					$("#div1").empty();
+				}
+			);
+			
+			$("#change_color").click(
+				function(){
+					$("p").css("color","red").hide(2000);
+				}
+			);
+		}
+	);
+	
+</script>	
+</head>
+
+<body>
+	
+	<div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:#13D1FF;">
+	<p>这是一段内容</p>
+	<p>这还是一段内容</p>
+	</div>
+	<br>
+	<button id="empty">清空框里内容</button>
+	<button id="change_color">点击改变颜色</button>
+
+</body>
+</html>

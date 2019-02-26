@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AJAX访问中的load()方法</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+	<button id="btn">查看信息</button>
+	<div id="content"></div>
+<!--	<a href="../source/html/person.html"></a>-->
+<script>
+	$(function(){
+		$("#btn").click(function(){
+			//1. 获取txt文件内容
+//			$("#content").load("../source/txt/hello.txt");
+			
+			//2. 获取html / xml文件内容
+//			$("#content").load("../source/html/person.html p:eq(0)");	//获取p标签第一个值
+//			$("#content").load("../source/html/person.html p:first");	//获取p标签第一个值
+//			$("#content").load("../source/html/person.html p:last");	//获取p标签最后一个值
+//			$("#content").load("../source/html/person.html p:odd");		//获取p标签奇数行的值
+			
+			//3. 获取json文件的内容
+				var data = "../source/json/person.json";
+				$("#content").load("../source/json/person.json",function(data){
+				var jsonObj = JSON.parse(data);
+				$(this).empty()
+					.append("<p>姓名：<span>" + jsonObj.name + "</span></p>")
+					.append("<p>年龄：<span>" + jsonObj.age + "</span></p>")
+					.append("<p>性别：<span>" + jsonObj.sex + "</span></p>")
+					.append("<p>学校：<span>" + jsonObj.school + "</span></p>");
+			});
+			
+			
+		});
+	});
+	
+</script>
+</body>
+</html>

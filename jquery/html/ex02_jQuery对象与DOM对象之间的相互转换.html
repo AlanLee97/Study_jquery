@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery对象与DOM对象之间的相互转换</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+	<ul>
+		<li>学习课程01</li>
+		<li>学习课程02</li>
+		<li>学习课程03</li>
+		<li>学习课程04</li>
+		<li>学习课程05</li>
+		
+	</ul>
+	
+	
+<script>
+	document.getElementsByTagName("li")[2].style.color="red";
+	
+	//jquery
+	$(document).ready(function(){
+		//jQuery对象与DOM对象之间的相互转换
+		
+		//1. 将jQuery对象转化为DOM对象
+		$(document.getElementsByTagName("li")[2]).css("color","blue");
+		
+		//2. 将DOM对象转化为jQuery对象
+		$("li")[4].style.color="red";
+	});
+	
+</script>
+</body>
+</html>

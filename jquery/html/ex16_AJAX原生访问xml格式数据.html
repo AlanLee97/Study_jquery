@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AJAX原生访问xml格式数据</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+	<a href="../source/xml/person.xml">访问xml文件</a>
+	<div>
+		<p id="name"></p>
+		<p id="age"></p>
+		<p id="sex"></p>
+		<p id="school"></p>
+		
+	</div>
+	
+<script>
+	window.onload = function(){
+		document.getElementsByTagName("a")[0].onclick = function(){
+			var reuqest = new XMLHttpRequest();
+			request.open("GET",this.href + '?=' + (new Date()),true);
+			reuqest.send(null);
+			reuqest.onreadystatechange = function(){
+				if(reuqest.readyState == 4 && reuqest.status == 200){
+					var result = request.responseXML;
+					var name = result.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+					var age = result.getElementsByTagName("age")[0].childNodes[0].nodeValue;
+					var sex = result.getElementsByTagName("sex")[0].childNodes[0].nodeValue;
+					var school = result.getElementsByTagName("school")[0].childNodes[0].nodeValue;
+					
+					document.getElementById("name").innerHTML = name;
+					document.getElementById("age").innerHTML = age;
+					document.getElementById("sex").innerHTML = sex;
+					document.getElementById("school").innerHTML = school;
+				}
+			}
+			return false;
+		}
+	}
+	
+	
+	
+	
+	
+	
+</script>
+</body>
+</html>

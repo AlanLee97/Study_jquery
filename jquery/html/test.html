@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+<meta name="author" content="http://www.php.cn/" /> 
+<title>php中文网</title>
+<script>
+function loadXMLDoc() {
+ var xmlhttp;
+ if (window.XMLHttpRequest) {
+ xmlhttp = new XMLHttpRequest();
+ }
+ else {
+ xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+ }
+ xmlhttp.onreadystatechange = function () {
+ if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+ var xmlDoc = xmlhttp.responseXML;
+ var str = "";
+ var targets = xmlDoc.getElementsByTagName("target");
+ for (index = 0; index < targets.length; index++) {
+ str = str + targets[index].childNodes[0].nodeValue + "<br>";
+ }
+ document.getElementById("show").innerHTML = str;
+ }
+ }
+ xmlhttp.open("GET", "../source/xml/person.xml", true);
+ xmlhttp.send();
+}
+window.onload = function () {
+ var obt = document.getElementById("bt");
+ obt.onclick = function () {
+ loadXMLDoc();
+ }
+}
+</script>
+</head>
+<body>
+<div>
+ <div id="show"></div>
+ <input id="bt" type="button" value="查看效果"/>
+</div>
+</body>
+</html>

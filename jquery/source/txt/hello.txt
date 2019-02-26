@@ -1,0 +1,2 @@
+hello jquery!
+我正在学习jquery!

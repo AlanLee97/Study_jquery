@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML属性查询与设置技巧:attr()/removeAttr()</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+	<img width="50%" class="" src="../source/imgs/bg1.jpg" alt="QQ登录背景图1" />
+	
+<script>
+	$(document).ready(function(){
+		//attr()属性
+		document.write($("img").attr("alt"));
+		document.write("<br/>");
+		document.write($("img").attr("src"));
+		
+		//removeAttr()属性
+		document.write("<br/>");
+		document.write($("img").removeAttr("class"));
+		
+	});
+	
+</script>
+</body>
+</html>

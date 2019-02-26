@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>给元素绑定元素的二种方法: even()和bind()</title>
+<style>
+	img{
+		width: 20%;
+	}
+	
+	
+</style>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+	<img id="bg3" alt="花与天空" src="../source/imgs/bg3.jpg">
+	<br/>
+	<h3></h3>
+	<button id="btn">创建图像</button>
+	<br/>
+	<div></div>
+	
+	<h2>3. 解除绑定事件 unbind()</h2>
+	<h3>点击图片随机切换图片</h3>
+	<img id="switchImg" alt="花与天空" src="../source/imgs/bg3.jpg">
+<script>
+	$(document).ready(function(){
+		//1. 给已经存在的标签添加事件 event()
+		$("h3").text($("img").attr("alt"));
+		$("#bg3").click(function(event){
+			$(this).attr({
+				"src":"../source/imgs/bg2.jpg",
+				"alt":"QQ登录背景图2"
+			});
+			$("h3").text($(this).attr("alt"));
+		});
+		
+		//2. 用脚本创建的标签添加事件 bind()
+		$("#btn").click(function(event){
+			$("div").html("<img id='bg1' src='../source/imgs/bg1.jpg' alt='QQ登录背景图1'>");
+			$("#bg1").bind("click",function(){
+				$(this).after("<h3>" + $(this).attr("alt") + "</h3>");
+			});
+		});
+		
+		
+		//3. 解除绑定事件 unbind()
+		$("#switchImg").click(function(){
+			var num = Math.floor(Math.random() * 3 + 1);
+			$(this).attr("src","../source/imgs/bg" + num + ".jpg");
+			
+			//解除绑定事件 unbind()
+			$(this).unbind();	//此时图片将不能切换
+		});
+		
+	});
+	
+	
+	
+	
+</script>
+</body>
+</html>

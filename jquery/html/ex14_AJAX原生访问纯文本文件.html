@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AJAX原生访问纯文本文件</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+	<a href="../source/txt/hello.txt">打个招呼</a>
+	<h3></h3>
+	
+	
+<script>
+	window.onload = function(){
+		//获取页面中所有a元素的第一个a元素，并添加事件
+		document.getElementsByTagName("a")[0].onclick = function(){
+			//1. 获取XHR对象
+			var request = new XMLHttpRequest();
+			//2. 配置ajax请求参数：请求类型，参数1为请求类型，参数2为请求的URL资源，参数3为请求方式，默认为true,即异步请求
+			request.open("GET",this.href+'?='+(new Date()),true);
+			//3. 将ajax请求发送到服务器，GET方式请求不需要参数，设置为空或null
+			request.send(null);
+			//4. 监听服务器端的响应
+			request.onreadystatechange = function(){
+				//5. 请求状态码
+				if(request.readyState == 4 && request.status == 200){
+					//6. 根据数据类型来更新当前页面中的DOM节点信息
+					document.getElementsByTagName("h3")[0].innerHTML = request.responseText;
+				}
+			}
+		}
+		
+		
+		
+		return false;	//取消a标签默认的点击行为
+	}
+	
+</script>
+</body>
+</html>

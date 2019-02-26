@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML内容查询与设置</title>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+	
+<body>
+	<h2>html()和text()的使用</h2>
+<ul>
+	<li id="t1">文本1</li>
+	<li id="t2">文本2</li>
+	<li>文本3</li>
+	<li>文本4</li>
+	<li>文本5</li>
+</ul>
+
+						  
+						  
+<script>
+	$(document).ready(function(){
+		$("#t1").text("使用text()修改文本，啦啦啦~");
+		
+		$("#t2").html("使用html()解析标签。啦啦啦~ <img width='20%' src='../source/imgs/bg3.jpg' />");
+	});
+	
+	
+</script>
+</body>
+</html>

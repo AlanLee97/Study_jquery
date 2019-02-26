@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>删除元素:删除或清空子元素</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+	<p class="text">这是一个文本</p>
+	<a href="#" class="link">这是一个空链接</a>
+	<br/>
+	<img width="30%" src="../source/imgs/bg3.jpg" alt="" class="img">
+	<button id="btn">点击删除图片</button>
+<script>
+	$(document).ready(function(){
+		$("#btn").click(function(){
+			//$("img").remove();	方法1
+			//$("body *").remove("img");	方法1
+			$("body").empty();	//方法3 清空body标签下的所有元素
+		});
+		
+	});
+	
+</script>
+</body>
+</html>

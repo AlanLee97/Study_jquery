@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AJAX访问中的$.ajax()函数</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+	<button>我的信息</button><br/>
+	<div>
+		姓名：<p id="name"></p>
+		年龄：<p id="age"></p>
+		性别：<p id="sex"></p>
+		学校：<p id="school"></p>
+	
+	</div>
+	
+<script>
+	$(function(){
+		$("button").click(function(data){
+			//$.ajax(),参数是一个对象
+			$.ajax({
+				type:"GET",
+				url:"../source/json/person.json",
+				data:null,
+				dataType:"json",
+				success:function(){
+					$("#name").text(data.name);
+					$("#age").text(data.age);
+					$("#sex").text(data.sex);
+					$("#school").text(data.school);
+				}
+			});
+		});
+	});
+	
+	
+	
+	
+</script>
+</body>
+</html>

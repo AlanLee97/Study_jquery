@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>包装元素:另类的元素的创建方案</title>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+	<h3>标签1</h3>
+	<h3>标签2</h3>
+	<h3 id="tag">标签3</h3>
+	<h3 id="tag">标签4</h3>
+	
+<script>
+	$(document).ready(function(){
+		//warp()将选中的所有元素进行包装
+		$("h3").wrap("<i></i>");
+		//warpInner()将选中的所有元素进行包装
+		$("h3").wrapInner("<span style='color:red'></span>")
+		;//warpAll()将选中的所有元素进行包装
+		$("#tag").wrapAll("<span style='border:1px solid blue'></span>");
+	});
+	
+</script>
+</body>
+</html>
